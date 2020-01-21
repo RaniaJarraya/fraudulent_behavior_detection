@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Image Search Engine</title>
+
+  </head>
+
+  <div class="navbar" style=" position: relative;;
+  top: 0;
+  width: 100%;
+  z-index: 10;background-color: #000000;">
+    <ul class="nav">
+      <li class="item">
+        <h4 style="text-align: center;color: #f2f2f2;font-size: 20px;"> detection of warning cases for humans </h4>
+      </li>
+    </ul>  
+  </div>
+ 
+  <body id="main">
+<div class="container">
+<div class="row">
+        <br><br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <h1>Choose Image </h1>
+        </div>
+        <div class="col-lg-2"></div>
+ </div>
+ <div class="row">
+        <br><br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+        <form method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+            <input type="file" name="query_img" class="form-control">
+            <span class="input-group-btn"><button type="submit" class="btn btn-danger">Predict</button></span>
+        </div>
+        </form>
+ </div>
+          <br><br>
+          <br><br>
+
+        <div class="row">
+            <!--box-1-->
+              {% if query_path %}
+            <div class="col-md-4">
+                <div class="box-1 wow  wow bounceInRight" data-wow-duration="4s"" >
+                <h5 >Given Image: </h5>
+                    <img id="img" src="{{ query_path }}" width="70%" height="50%" >
+                     
+                    
+                </div>
+            </div>
+             {% endif %}
+              <!--box-2-->
+              {% if answers %}
+            <div class="col-md-4">
+                    <div class="box-1 wow wow bounceInLeft" data-wow-duration="3s"" >
+                    <h2 style="color:#FF0000;text-align: center";>result: {{message}}</h2>
+                            <img id="img" src="{{answers}}"  width="70%" height="50%">
+                            
+                            
+                    </div>
+            </div>
+             {% endif %}
+        </div>
+    </div>
+    <hr><br><br>
+    
+  </body>
+</html>
